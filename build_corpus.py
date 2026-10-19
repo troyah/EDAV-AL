@@ -1,0 +1,290 @@
+# -*- coding: utf-8 -*-
+"""Gera corpus IRAMUTEQ (EDAV-AL) a partir das 5 versões do instrumento.
+Formato:  **** *dim_X_nome *item_NN  /  texto do item  /  linha em branco
+Corpus combinado: **** *vN *dim_X_nome *item_NN
+"""
+
+D1, D2, D3, D4, D5 = ("dim_1_hipervigilancia", "dim_2_carga_mental",
+                      "dim_3_agencia_comunitaria", "dim_4_pertencimento",
+                      "dim_5_saude_mental")
+
+VERSOES = {
+"v1": {
+D1: [
+"Sinto que preciso prestar atenção dobrada no meu modo de falar ou vestir para evitar ser mal interpretado(a) ou discriminado(a) no campus.",
+"Fico tenso(a) ou apreensivo(a) ao circular por determinados prédios ou espaços da universidade, onde vejo poucas pessoas com o meu perfil.",
+"Sinto a necessidade de demonstrar um desempenho acadêmico/laboral superior ao dos outros para ter o meu valor reconhecido.",
+"Perco a concentração nas tarefas quando presencio ou escuto comentários preconceituosos velados no ambiente universitário.",
+"Evito expor dúvidas ou opiniões em público na faculdade por medo de que isso seja usado para reforçar estereótipos.",
+"Sinto a necessidade de medir cada gesto ou tom de voz ao interagir com professores, gestores ou figuras de autoridade no campus.",
+"Fico em alerta constante pensando que qualquer erro meu será atribuído à minha raça/origem e não a uma dificuldade comum de aprendizado ou trabalho.",
+"Temo que posso ser prejudicado profissionalmente por colegas do trabalho e/ou superiores que não gostam de mim.",
+"Sinto que as relações com as pessoas que trabalham comigo são um ponto de preocupação constante.",
+"Geralmente, evito me aproximar a nível pessoal dos meus colegas de trabalho e/ou superiores para evitar conflitos de convivência.",
+"Percebo que há diferenças acentuadas entre as sanções aplicadas a mim e aos outros colaboradores.",
+],
+D2: [
+"Gasto energia e tempo significativos do meu dia tentando resolver pendências operacionais ou financeiras de permanência (como transporte, alimentação, bolsas ou acessibilidade).",
+"Sinto-me exausto(a) mentalmente por ter que negociar ou cobrar repetidamente por adaptações ou direitos básicos para conseguir estudar/trabalhar.",
+"Deixo de participar de atividades acadêmicas ou de lazer no campus por falta de recursos financeiros ou por barreiras de acessibilidade.",
+"Tenho dificuldades para dormir ou relaxar devido à preocupação constante com a minha continuidade na universidade.",
+"Sinto que o desgaste para superar as barreiras de infraestrutura ou rotina da universidade prejudica minha saúde física ou mental.",
+"Sinto-me fisicamente e mentalmente exausto(a) no final do dia devido ao esforço de locomoção ou falta de acessibilidade adequada no campus.",
+"Preciso abdicar de momentos de descanso ou lazer para dar conta das exigências da universidade juntas com minhas responsabilidades financeiras/familiares.",
+"Me sinto frustrado(a) em relação a quantidade excessiva de tempo em que me dedico às atividades do meu trabalho.",
+"Tenho acesso aos recursos materiais necessários para realização das minhas atividades profissionais (EPIs, materiais de limpeza, computadores, mantimentos, ou demais ferramentas ligadas ao exercício da função).",
+"A quantidade de funcionários é suficiente para que tudo funcione bem.",
+],
+D3: [
+"Encontro apoio e acolhimento em colegas ou coletivos dentro do campus quando me sinto sobrecarregado(a).",
+"Consigo conversar abertamente com pessoas da universidade sobre as dificuldades que enfrento no meu dia a dia.",
+"Participo de espaços ou redes de apoio mútuo que me ajudam a manter a motivação para continuar na instituição.",
+"Sinto que minhas vivências e opiniões são acolhidas e respeitadas por pelo menos um grupo ou professor/supervisor no campus.",
+"Recorro a amigos, colegas de trabalho ou grupos de convivência na faculdade para me reestruturar após momentos difíceis.",
+"Encontro no campus espaços comunitários ou de convivência que me fazem renovar as energias para continuar na universidade.",
+"Sei a quem recorrer dentro da faculdade quando vivencio uma situação de injustiça, preconceito ou violência institucional.",
+"Quando eu tenho um conflito com um colega de trabalho busco alguém que possa me ajudar a resolvê-lo.",
+"As pessoas demonstram boa vontade para resolver os problemas relacionados ao ambiente de trabalho.",
+"Eu me sinto apoiado e orientado pela equipe gestora no meu ambiente de trabalho (coordenadores, diretores, superior, líder, chefe, gerente, etc).",
+],
+D4: [
+"Sinto que a universidade é um lugar ao qual eu pertenço de fato.",
+"Percebo que o meu trabalho ou a minha presença como estudante contribui de forma significativa para a comunidade universitária.",
+"Sinto-me confortável para ocupar e utilizar os espaços físicos, culturais e de lazer do campus.",
+"Vejo a história, a cultura ou a realidade do meu grupo social representadas e valorizadas nas atividades da faculdade.",
+"Sinto que tenho voz ativa e autonomia para me posicionar nos ambientes em que circulo na universidade.",
+"Sinto que posso expressar minha identidade, cultura e valores na universidade sem precisar me anular para ser aceito(a).",
+"Percebo que a universidade reconhece as especificidades da minha realidade e oferece condições para que eu permaneça nela com dignidade.",
+"São realizadas assembleias ou encontros com os colaboradores para discutir as condições laborais e políticas da empresa.",
+"Eu sinto que a comunidade universitária como um todo valoriza o meu trabalho.",
+"Todos agem como se realmente se sentissem responsáveis pelo seu trabalho e fazem a sua parte.",
+],
+},
+"v2": {
+D1: [
+"Percebo a necessidade de monitorar meu modo de falar ou me comportar para evitar julgamentos ou interpretações distorcidas no trabalho.",
+"Adoto maior reserva ou cautela ao circular por determinados ambientes da universidade onde me sinto pouco integrado.",
+"Sinto a exigência de entregar um desempenho superior para ter meu trabalho devidamente reconhecido na instituição.",
+"Vejo minha atenção nas tarefas afetada quando presencio atitudes hostis ou comentários pejorativos no ambiente de trabalho.",
+"Evito expor dúvidas ou posicionamentos em reuniões e conversas de trabalho para não me expor a críticas desproporcionais.",
+"Meço com rigor meus gestos e tom de voz ao interagir com gestores ou figuras de autoridade no campus.",
+"Percebo a preocupação de que eventuais falhas operacionais minhas sejam avaliadas com mais rigor do que as de outros colegas.",
+"Presencio ou me deparo com episódios de postura desrespeitosa ou preconceito no cotidiano universitário.",
+],
+D2: [
+"Dedico tempo e energia significativos para gerenciar o deslocamento diário e a logística de acesso ao meu local de trabalho no campus.",
+"Necessito realizar solicitações recorrentes para obter insumos, equipamentos ou condições físicas adequadas para a execução das minhas tarefas.",
+"Encontro barreiras físicas, arquitetônicas ou de infraestrutura ao me deslocar e utilizar os espaços do campus no cotidiano laboral.",
+"Enfrento processos burocráticos ou fluxos administrativos complexos para viabilizar as rotinas de trabalho do meu setor.",
+"Percebo que as condições físicas e ergonômicas do meu posto de trabalho exigem esforço físico compensatório ao longo da jornada.",
+"Encontro limitações no acesso claro e ágil às informações e sistemas necessários para o cumprimento das minhas atribuições.",
+"Necessito reorganizar frequentemente minhas rotinas pessoais ou familiares para responder às exigências operacionais e de horário do setor.",
+"Enfrento limitações decorrentes da falta de manutenção preventiva ou corretiva nos ambientes físicos e equipamentos do meu setor.",
+"Necessito adaptar a execução das minhas tarefas devido a má infraestrutura tecnológica, de rede ou de sistemas no campus.",
+],
+D3: [
+"Encontro apoio e acolhimento em colegas, equipes ou coletivos no campus diante de situações de sobrecarga.",
+"Identifico abertura para conversar sobre as dificuldades do meu cotidiano com pessoas da comunidade universitária.",
+"Participo de redes ou espaços de apoio mútuo que auxiliam na manutenção do engajamento com o trabalho.",
+"Percebo que minhas vivências e opiniões são acolhidas e respeitadas por colegas ou lideranças no campus.",
+"Recorro a amigos, colegas ou grupos de convivência na instituição para reestruturação após momentos de desgaste.",
+"Encontro no campus espaços comunitários ou de convivência que favorecem a renovação de energias na rotina diária.",
+"Identifico canais ou pessoas de referência na instituição a quem recorrer diante de situações de injustiça ou violação de direitos.",
+"Recebo orientações e alertas de colegas ou redes do campus sobre como navegar e prevenir situações de risco ou desgaste no ambiente universitário.",
+"Encontro abertura para estabelecer parcerias e pontes de apoio com profissionais de outros setores ou unidades do campus.",
+],
+D4: [
+"Percebo a universidade como um ambiente acolhedor e favorável para o desenvolvimento do meu trabalho.",
+"Identifico que o meu trabalho e a minha presença como colaborador são reconhecidos de forma significativa pela comunidade universitária.",
+"Encontro facilidade para ocupar e utilizar os espaços físicos, culturais e de convivência do campus.",
+"Identifico a história, a cultura e a realidade do meu grupo social representadas e valorizadas nos ambientes da instituição.",
+"Percebo espaço para ter voz ativa e autonomia de posicionamento nos ambientes em que circulo na universidade.",
+"Identifico liberdade para expressar minha identidade, cultura e valores na universidade sem necessidade de anulação pessoal.",
+"Percebo que a universidade reconhece as especificidades da minha realidade e oferece condições para a minha permanência com dignidade.",
+"Visualizo possibilidades de progressão ou movimentação na minha trajetória profissional dentro da instituição a médio e longo prazo.",
+"Percebo que a remuneração recebida nesta ocupação é adequada para suprir minhas necessidades materiais de manutenção individual ou familiar.",
+],
+D5: [
+"Identifico a existência de ações, programas ou canais formais de suporte à saúde mental e ao bem-estar promovidos pela universidade.",
+"Percebo que a cadência e a distribuição das tarefas no meu setor permitem a preservação da minha saúde mental ao longo da rotina de trabalho.",
+"Identifico a presença de pausas ou momentos de descompressão viáveis no decorrer da minha jornada de trabalho no campus.",
+"Encontro flexibilidade na rotina de trabalho para realizar e manter tratamentos ou acompanhamentos de saúde mental com profissionais externos.",
+"Percebo espaço de diálogo com a liderança ou chefia imediata para tratar de ajustes de demandas em períodos de maior desgaste emocional.",
+"Identifico receptividade e sensibilidade entre os colegas de setor em relação a situações de estresse ou vulnerabilidade vivenciadas no ambiente de trabalho.",
+"Consigo estabelecer fronteiras claras entre os compromissos do trabalho e os períodos de descanso e vida pessoal.",
+"Avalio que a estrutura de organização do meu trabalho atua de forma a prevenir o esgotamento físico e mental contínuo.",
+"Adoto rotineiramente práticas individuais direcionadas ao cuidado com a minha saúde física e mental no cotidiano.",
+],
+},
+"v3": {
+D1: [
+"Sinto que preciso redobrar a atenção no meu modo de falar, vestir ou agir para evitar ser mal interpretado(a) no trabalho.",
+"Sinto tensão ao circular por espaços da instituição em que ainda não me sinto familiarizado(a).",
+"Sinto a necessidade de demonstrar um desempenho superior ao dos outros para ter o meu valor reconhecido no trabalho.",
+"Tenho dificuldade de me concentrar após ouvir comentários depreciativos no ambiente institucional.",
+"Evito expor dúvidas ou opiniões em público por receio de ser desvalorizado(a).",
+"Sinto a necessidade de medir cada gesto ou tom de voz ao interagir com professores, gestores ou figuras de autoridade no campus.",
+"Fico em alerta ao pensar que um erro meu pode levar outras pessoas a questionarem minha competência.",
+"Reviso mentalmente o que vou dizer antes de participar de reuniões ou atividades institucionais.",
+"Observo as reações das pessoas para avaliar como minhas falas são recebidas.",
+"Sinto dificuldade de relaxar em situações nas quais meu desempenho está sendo avaliado.",
+],
+D2: [
+"Consumo boa parte do meu dia e da minha energia lidando com a correria para me manter no trabalho, resolvendo problemas com transporte, alimentação e o dinheiro do mês.",
+"Sinto-me exausto(a) mentalmente por ter que negociar ou cobrar repetidamente por adaptações ou direitos básicos para conseguir trabalhar.",
+"Deixo de ir a eventos, momentos de descanso ou atividades no trabalho por falta de dinheiro ou por dificuldade para me deslocar.",
+"Tenho dificuldades para dormir ou relaxar devido à preocupação constante com a minha continuidade no trabalho.",
+"Sinto que o desgaste para superar as barreiras de infraestrutura ou rotina do trabalho prejudica minha saúde física ou mental.",
+"Sinto-me fisicamente e mentalmente exausto(a) no final do dia devido ao esforço de locomoção ou falta de acesso adequado no trabalho.",
+"Preciso abdicar de momentos de descanso ou lazer para dar conta das exigências do trabalho junto com minhas responsabilidades financeiras/familiares.",
+"Preciso reorganizar minha rotina para lidar com imprevistos relacionados ao deslocamento até a instituição.",
+"As exigências da minha rotina deixam pouco tempo disponível para descansar entre um dia e outro.",
+"Preciso dedicar esforço adicional para conciliar as exigências da instituição com minhas responsabilidades fora dela.",
+],
+D3: [
+"Encontro apoio e acolhimento em colegas ou coletivos dentro do trabalho quando me sinto sobrecarregado(a).",
+"Consigo conversar abertamente com pessoas da universidade sobre as dificuldades que enfrento no meu dia a dia.",
+"Participo de espaços ou redes de apoio mútuo que me ajudam a manter a motivação para continuar na instituição.",
+"Sinto que a minha opinião e a minha vida importam e são respeitadas por pelo menos algum grupo de trabalho ou por um supervisor aqui no local.",
+"Recorro a amigos e colegas de trabalho para me reestruturar após momentos difíceis.",
+"Acho que existem espaços de convivência e descanso no trabalho que me ajudam a recarregar as energias para continuar o serviço.",
+"Sei a quem recorrer na instituição quando enfrento uma situação que considero injusta.",
+"Sinto que posso contar com a colaboração de outras pessoas da instituição para realizar atividades em conjunto.",
+"Recebo ajuda de colegas quando encontro dificuldades para realizar minhas atividades.",
+"Conheço os canais institucionais que posso procurar quando preciso de orientação ou apoio.",
+],
+D4: [
+"Sinto que a universidade é um lugar ao qual me sinto acolhida(o) e valorizada(o).",
+"Percebo que o meu trabalho ou a minha presença contribuem de forma significativa para a comunidade universitária.",
+"Sinto-me confortável para ocupar e utilizar os espaços físicos, culturais e de lazer da instituição.",
+"Percebo que minhas experiências e perspectivas são consideradas nas atividades da instituição.",
+"Sinto que tenho voz ativa e autonomia para me posicionar nos ambientes em que circulo na universidade.",
+"Sinto que não preciso modificar aspectos do meu comportamento para me sentir aceito(a) na instituição.",
+"Percebo que o meu local de trabalho leva em conta as minhas necessidades e oferece o apoio necessário para eu me manter no emprego de forma justa.",
+"Percebo que minhas contribuições são consideradas nas decisões que afetam minhas atividades.",
+"Sinto-me à vontade para participar das atividades oferecidas pela instituição.",
+"Sinto que tenho oportunidades de participar das decisões relacionadas às atividades da instituição.",
+],
+},
+"v4": {
+D1: [
+"Sinto que preciso prestar atenção na maneira como me comporto para evitar ser discriminado no ambiente de trabalho.",
+"Fico tenso(a) ou apreensivo(a) ao circular por determinados prédios ou espaços da universidade onde vejo poucas pessoas com o meu perfil.",
+"Sinto que preciso demonstrar constantemente minha competência no trabalho.",
+"Perco a concentração nas tarefas quando presencio ou escuto comentários preconceituosos velados no ambiente universitário.",
+"Evito expor dúvidas ou opiniões em público na faculdade por medo de que isso seja usado para reforçar estereótipos.",
+"Sinto a necessidade de medir cada gesto ou tom de voz ao interagir com professores, gestores ou figuras de autoridade no campus.",
+"Fico em alerta constante pensando que qualquer erro meu será atribuído à minha raça/origem e não a uma dificuldade comum de aprendizado ou trabalho.",
+"Evito contato visual com estudantes e outros servidores de cargos mais altos que o meu por achar que vou deixá-los desconfortáveis com a minha presença.",
+"Procuro realizar minha tarefa mais rapidamente ao perceber que um estudante ou outra pessoa parece estar com pressa, mesmo que essa urgência não tenha sido expressa.",
+"Vou a lugares isolados quando termino minhas tarefas por pensar que não me encaixo no ambiente de trabalho.",
+],
+D2: [
+"Gasto energia e tempo significativos do meu dia tentando resolver pendências operacionais ou financeiras de permanência (como transporte, alimentação, bolsas ou acessibilidade).",
+"Sinto-me exausto(a) mentalmente por ter que negociar ou cobrar repetidamente por adaptações ou direitos básicos para conseguir estudar/trabalhar.",
+"Deixo de participar de atividades acadêmicas ou de lazer no campus por falta de recursos financeiros ou por barreiras de acessibilidade.",
+"Tenho dificuldades para dormir ou relaxar devido à preocupação constante com a minha continuidade no trabalho.",
+"Sinto que o desgaste para superar as barreiras de infraestrutura ou rotina do trabalho prejudica minha saúde física ou mental.",
+"Sinto-me fisicamente e mentalmente exausto(a) no final do dia devido ao esforço de locomoção ou falta de acessibilidade adequada no",
+"Preciso abrir mão de momentos de descanso e lazer para cumprir minhas responsabilidades relacionadas ao trabalho.",
+"Tenho mais tarefas do que consigo fazer dentro do meu horário.",
+"Não consigo concluir minhas tarefas por falta de materiais/equipamentos.",
+"Preciso recorrer a alternativas improvisadas para terminar minhas tarefas quando os materiais/equipamentos não estão disponíveis.",
+],
+D3: [
+"Encontro apoio e acolhimento em colegas ou coletivos dentro do campus quando me sinto sobrecarregado(a).",
+"Consigo conversar abertamente com pessoas da universidade sobre as dificuldades que enfrento no meu dia a dia.",
+"Participo de espaços ou redes de apoio mútuo que me ajudam a manter a motivação para continuar na instituição.",
+"Sinto que minhas vivências e opiniões são acolhidas e respeitadas por pelo menos um grupo ou professor/supervisor no campus.",
+"Recorro a amigos, colegas de trabalho ou grupos de convivência na faculdade para me reestruturar após momentos difíceis.",
+"Encontro no campus espaços comunitários ou de convivência que me fazem renovar as energias para continuar na universidade.",
+"Sei a quem recorrer dentro do trabalho quando vivencio uma situação de injustiça, preconceito ou violência institucional.",
+"Tento ajudar meus colegas quando termino minhas funções primeiro.",
+"O serviço é dividido igualmente entre eu e os meus colegas para que ninguém seja sobrecarregado.",
+"Quando enfrento um problema por falta de recursos, recorro aos meus colegas para que me auxiliem.",
+],
+D4: [
+"Sinto que a universidade é um lugar ao qual eu pertenço de fato.",
+"Percebo que o meu trabalho contribui para a comunidade universitária.",
+"Sinto-me confortável para ocupar e utilizar os espaços físicos, culturais e de lazer do campus.",
+"Vejo a história, a cultura ou a realidade do meu grupo social representadas e valorizadas nas atividades da faculdade.",
+"Sinto que tenho voz ativa e autonomia para me posicionar nos ambientes em que circulo na universidade.",
+"Sinto que posso expressar minha identidade, cultura e valores na universidade sem precisar me anular para ser aceito(a).",
+"Percebo que a universidade reconhece as especificidades da minha realidade e oferece condições para que eu permaneça nela com dignidade.",
+"Sinto olhares negativos sobre mim.",
+"Evito ter muito contato com pessoas que não sejam meus colegas de trabalho como forma de evitar desconforto.",
+"Penso recorrentemente em ir para casa quando estou no trabalho por não me sentir à vontade no ambiente.",
+],
+},
+"v5": {
+D1: [
+"Sinto que preciso prestar atenção dobrada no meu modo de falar ou vestir para evitar ser mal interpretado(a) ou discriminado(a) no campus.",
+"Fico tenso(a) ou apreensivo(a) ao circular por determinados prédios ou espaços da universidade onde vejo poucas pessoas com o meu perfil.",
+"Sinto a necessidade de demonstrar um desempenho acadêmico/laboral superior ao dos outros para ter o meu valor reconhecido.",
+"Perco a concentração nas tarefas quando presencio ou escuto comentários preconceituosos velados no ambiente universitário.",
+"Evito expor dúvidas ou opiniões em público na faculdade por medo de que isso seja usado para reforçar estereótipos.",
+"Sinto a necessidade de medir cada gesto ou tom de voz ao interagir com professores, gestores ou figuras de autoridade no campus.",
+"Fico em alerta constante pensando que qualquer erro meu será atribuído à minha raça/origem e não a uma dificuldade comum de aprendizado ou trabalho.",
+"Fico apreensivo(a) em demonstrar entusiasmo, rir ou falar um pouco mais alto em momentos de pausa da aula/trabalho por medo de ser julgado(a) como inadequada para o ambiente.",
+"Percebo que os meus horários de chegada, saída e tempo de intervalo são monitorados ou questionados com muito mais rigor comparado a outras pessoas do campus.",
+"Me sinto cansado(a) mentalmente antes mesmo de chegar no campus apenas por ter que me preparar psicologicamente para as interações sociais no ambiente.",
+],
+D2: [
+"Gasto energia e tempo significativos do meu dia tentando resolver pendências operacionais ou financeiras de permanência (como transporte, alimentação, bolsas ou acessibilidade).",
+"Sinto-me exausto(a) mentalmente por ter que negociar ou cobrar repetidamente por adaptações ou direitos básicos para conseguir estudar/trabalhar.",
+"Deixo de participar de atividades acadêmicas ou de lazer no campus por falta de recursos financeiros ou por barreiras de acessibilidade.",
+"Tenho dificuldades para dormir ou relaxar devido à preocupação constante com a minha continuidade acadêmica ou por medo de ser demitida.",
+"Sinto que o desgaste para superar as barreiras de infraestrutura ou rotina da universidade prejudica minha saúde física ou mental.",
+"Sinto-me fisicamente e mentalmente exausto(a) no final do dia devido ao esforço de locomoção ou falta de acessibilidade adequada no campus.",
+"Preciso abdicar de momentos de descanso ou lazer para dar conta das exigências da universidade juntas com minhas responsabilidades financeiras/familiares.",
+"Gasto muito tempo tentando entender as normas e comunicados da instituição que utilizam uma linguagem inacessível.",
+"Boatos sobre possíveis cortes de verba ou atrasos de pagamentos afetam minha capacidade de manter o foco nas atividades que preciso realizar.",
+"Sinto dores ou desconfortos físicos no corpo que associo ao esforço para realizar as tarefas e com a falta de equipamentos corretos.",
+],
+D3: [
+"Encontro apoio e acolhimento em colegas ou coletivos dentro do campus quando me sinto sobrecarregado(a).",
+"Consigo conversar abertamente com pessoas da universidade sobre as dificuldades que enfrento no meu dia a dia.",
+"Participo de espaços ou redes de apoio mútuo que me ajudam a manter a motivação para continuar na instituição.",
+"Sinto que minhas vivências e opiniões são acolhidas e respeitadas por pelo menos um grupo ou professor/supervisor no campus.",
+"Recorro a amigos, colegas de turma/trabalho ou grupos de convivência na faculdade para me reestruturar após momentos difíceis.",
+"Encontro no campus espaços comunitários ou de convivência que me fazem renovar as energias para continuar na universidade.",
+"Sei a quem recorrer dentro da faculdade quando vivencio uma situação de injustiça, preconceito ou violência institucional.",
+"Quando uma pessoa nova chega no campus, nos organizamos para orientá-lo sobre como lidar com as pressões e a rotina no campus.",
+"Sinto que meus colegas validam meus sentimentos e não me julgam quando expresso cansaço ou frustração com as condições do ambiente.",
+"Conseguimos nos reunir entre colegas para criar soluções conjuntas quanto as pressões que sofremos.",
+],
+D4: [
+"Sinto que a universidade é um lugar ao qual eu pertenço de fato e me sinto bem.",
+"Percebo que o meu papel de funcionário ou de estudante contribui de forma significativa para a comunidade universitária.",
+"Sinto-me confortável para ocupar e utilizar os espaços físicos, culturais e de lazer do campus.",
+"Vejo a história, a cultura ou a realidade do meu grupo social representadas e valorizadas nas atividades da faculdade.",
+"Sinto que tenho voz ativa e autonomia para me posicionar nos ambientes em que circulo na universidade.",
+"Sinto que posso expressar minha identidade, cultura e valores na universidade sem precisar me anular para ser aceito(a).",
+"Percebo que a universidade reconhece as especificidades da minha realidade e oferece condições para que eu permaneça nela com dignidade.",
+"Me sinto à vontade para utilizar espaços como praças centrais, lanchonetes/refeitórios, bibliotecas que não são do meu prédio/setor.",
+"Percebo que minha função é tratada como uma parte essencial para a existência da universidade e não como algo descartável.",
+"Sinto que as pessoas com quem interajo no campus me reconhecem por quem eu sou, me chamam pelo meu nome ao invés de só me ver como uma extensão do papel que eu cumpro dentro da universidade.",
+],
+},
+}
+
+
+def blocos(dims, prefixo_versao=""):
+    n, out = 0, []
+    for dim, itens in dims.items():
+        for texto in itens:
+            n += 1
+            cab = f"**** {prefixo_versao}*{dim} *item_{n:02d}"
+            out.append(f"{cab}\n{texto}\n")
+    return "\n".join(out)
+
+
+if __name__ == "__main__":
+    combinado = []
+    for v, dims in VERSOES.items():
+        with open(f"corpus_{v}.txt", "w", encoding="utf-8") as f:
+            f.write(blocos(dims))
+        combinado.append(blocos(dims, prefixo_versao=f"*{v} "))
+        print(v, {d: len(i) for d, i in dims.items()}, "total", sum(len(i) for i in dims.values()))
+    with open("corpus_combinado.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(combinado))
