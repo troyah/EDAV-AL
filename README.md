@@ -8,7 +8,7 @@ e a equipe da Universidade Federal de Minas Gerais (UFMG) — por meio de indica
 comportamentais observáveis ​​e descritivos, isentos de qualquer rotulagem indutiva ou 
 viés ideológico.
 
-# THE NEXT STEPS IN OUR CONSTRUCTION PROCESS
+# PASSO A PASSO DO NOSSO PROCESSO DE CONSTRUÇÃO
 1. Definição do público-alvo
 2. Definição do construto com base no que objetivamos avaliar a partir de uma questão problema
 3. Elaboração de uma escrita a respeito da ideia inicial
