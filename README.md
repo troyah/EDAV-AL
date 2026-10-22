@@ -1,12 +1,12 @@
 # EDAV-AL
-Classwork of a discipline Psychological Testing Techniques II: EDAV-AL
+Trabalho da disciplina Técnicas de Avaliação Psicológica II: 
+# Escala de desgaste, agência e vitalidade laboral (EDAV-AL)
 
-The instrument aims to measure work dynamics, 
-stress load, capacity for agency, and interpersonal 
-integration — in this instance, among the employees 
-and staff of the Federal University of Minas Gerais 
-(UFMG) — through observable and descriptive behavioral 
-indicators, free from any inductive labeling or ideological bias.
+O instrumento tem por objetivo mensurar a dinâmica de trabalho, a carga de estresse, 
+a capacidade de agência e a integração interpessoal — neste caso, entre os funcionários 
+e a equipe da Universidade Federal de Minas Gerais (UFMG) — por meio de indicadores 
+comportamentais observáveis ​​e descritivos, isentos de qualquer rotulagem indutiva ou 
+viés ideológico.
 
 # THE NEXT STEPS IN OUR CONSTRUCTION PROCESS
 1. Definição do público-alvo
