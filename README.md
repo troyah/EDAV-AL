@@ -34,6 +34,6 @@ viés ideológico.
 23. Revisão e formatação da parte escrita
 
 # NOTAS
-(*) Fazer o gabarito
-(*) Os itens estarão em ordem aleatória assim como no MAP
-(*) Preciso pensar na inversão dos itens
+- Fazer o grifo
+- Os itens estarão em ordem aleatória assim como no MAP
+- Preciso pensar na inversão dos itens no cálculo
