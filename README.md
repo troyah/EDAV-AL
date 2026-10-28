@@ -32,3 +32,8 @@ viés ideológico.
 21. Análise estatistica (R)
 22. Parte escrita: introdução; desenvolvimento; conclusão
 23. Revisão e formatação da parte escrita
+
+# NOTAS
+(*) Fazer o gabarito
+(*) Os itens estarão em ordem aleatória assim como no MAP
+(*) Preciso pensar na inversão dos itens
